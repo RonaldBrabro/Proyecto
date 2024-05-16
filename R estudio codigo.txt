@@ -1,0 +1,220 @@
+# Cargar librerías necesarias
+library(ggplot2)
+library(tidyverse)
+library(hrbrthemes)
+library(readxl)
+Reto_estadistica <- read_excel("C:/Users/Erick Mateo/Desktop/Estadistica/Reto estadistica.xlsx")
+View(Reto_estadistica)
+# Estadísticas descriptivas
+# Velocidad (m/s)
+ sd(Reto_estadistica$`velocidad m/s`)
+ mean(Reto_estadistica$`velocidad m/s`)
+ median(Reto_estadistica$`velocidad m/s`)
+IQR(Reto_estadistica$`velocidad m/s`)
+# Angulo 
+ sd(Reto_estadistica$Angulo)
+ mean(Reto_estadistica$Angulo)
+median(Reto_estadistica$Angulo)
+IQR(Reto_estadistica$Angulo)
+# Velocidad en x
+sd(Reto_estadistica$`Velocidad X`)
+mean(Reto_estadistica$`Velocidad X`)
+median(Reto_estadistica$`Velocidad X`)
+IQR(Reto_estadistica$`Velocidad X`)
+# Velocidad en y 
+sd(Reto_estadistica$`Velocidad Y`)
+mean(Reto_estadistica$`Velocidad Y`)
+median(Reto_estadistica$`Velocidad Y`)
+IQR(Reto_estadistica$`Velocidad Y`)
+#  Tiempo
+sd(Reto_estadistica$Tiempo)
+mean(Reto_estadistica$Tiempo)
+median(Reto_estadistica$Tiempo)
+IQR(Reto_estadistica$Tiempo)
+# Altura máxima
+sd(Reto_estadistica$`Altura Maxima`)
+mean(Reto_estadistica$`Altura Maxima`)
+median(Reto_estadistica$`Altura Maxima`)
+IQR(Reto_estadistica$`Altura Maxima`)
+# Alcance horizontal
+sd(Reto_estadistica$`Alcanze horizontal`)
+mean(Reto_estadistica$`Alcanze horizontal`)
+median(Reto_estadistica$`Alcanze horizontal`)
+IQR(Reto_estadistica$`Alcanze horizontal`)
+# Visualización de resultados
+# Histograma de Velocidad (m/s)
+ggplot(Reto_estadistica, aes(x=`velocidad m/s`)) +
+  geom_histogram(binwidth=100, fill="tomato", color="black", alpha=0.9) +
+  ggtitle("Histograma de Velocidad (m/s)") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Diagrama de caja de Velocidad (m/s)
+ggplot(Reto_estadistica, aes(y=`velocidad m/s`)) +
+  geom_boxplot(fill="slateblue", alpha=0.5) +
+  ylab("Velocidad (m/s)") +
+  ggtitle("Diagrama de caja de Velocidad (m/s)") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Gráfico de dispersión de Velocidad en X vs Velocidad en Y
+ggplot(Reto_estadistica, aes(x=`Velocidad X`, y=`Velocidad Y`)) +
+  geom_point(color="darkred") +
+  ggtitle("Dispersión de Velocidad en X vs Velocidad en Y") +
+  xlab("Velocidad en X") +
+  ylab("Velocidad en Y") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Histograma de Ángulo
+ggplot(Reto_estadistica, aes(x=Angulo)) +
+  geom_histogram(binwidth=100, fill="purple", color="black", alpha=0.9) +
+  ggtitle("Histograma de Ángulo") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Diagrama de caja de Ángulo
+ggplot(Reto_estadistica, aes(y=Angulo)) +
+  geom_boxplot(fill="gold", alpha=0.5) +
+  ylab("Ángulo") +
+  ggtitle("Diagrama de caja de Ángulo") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Histograma de Velocidad en X
+ggplot(Reto_estadistica, aes(x=`Velocidad X`)) +
+  geom_histogram(binwidth=10, fill="darkorange", color="black", alpha=0.9) +
+  ggtitle("Histograma de Velocidad en X") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Diagrama de caja de Velocidad en X
+ggplot(Reto_estadistica, aes(y=`Velocidad X`)) +
+  geom_boxplot(fill="forestgreen", alpha=0.5) +
+  ylab("Velocidad en X") +
+  ggtitle("Diagrama de caja de Velocidad en X") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Histograma de Velocidad en Y
+ggplot(Reto_estadistica, aes(x=`Velocidad Y`)) +
+  geom_histogram(binwidth=10, fill="steelblue", color="black", alpha=0.9) +
+  ggtitle("Histograma de Velocidad en Y") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Diagrama de caja de Velocidad en Y
+ggplot(Reto_estadistica, aes(y=`Velocidad Y`)) +
+  geom_boxplot(fill="dodgerblue", alpha=0.5) +
+  ylab("Velocidad en Y") +
+  ggtitle("Diagrama de caja de Velocidad en Y") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Histograma de Tiempo
+ggplot(Reto_estadistica, aes(x=Tiempo)) +
+  geom_histogram(binwidth=1, fill="salmon", color="black", alpha=0.9) +
+  ggtitle("Histograma de Tiempo") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Diagrama de caja de Tiempo
+ggplot(Reto_estadistica, aes(y=Tiempo)) +
+  geom_boxplot(fill="khaki", alpha=0.5) +
+  ylab("Tiempo") +
+  ggtitle("Diagrama de caja de Tiempo") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Histograma de Altura Máxima
+ggplot(Reto_estadistica, aes(x=`Altura Maxima`)) +
+  geom_histogram(binwidth=100, fill="orchid", color="black", alpha=0.9) +
+  ggtitle("Histograma de Altura Máxima") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Diagrama de caja de Altura Máxima
+ggplot(Reto_estadistica, aes(y=`Altura Maxima`)) +
+  geom_boxplot(fill="lightpink", alpha=0.5) +
+  ylab("Altura Máxima") +
+  ggtitle("Diagrama de caja de Altura Máxima") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Histograma de Alcance Horizontal
+ggplot(Reto_estadistica, aes(x=`Alcanze horizontal`)) +
+  geom_histogram(binwidth=100, fill="mediumseagreen", color="black", alpha=0.9) +
+  ggtitle("Histograma de Alcance Horizontal") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Diagrama de caja de Alcance Horizontal
+ggplot(Reto_estadistica, aes(y=`Alcanze horizontal`)) +
+  geom_boxplot(fill="coral", alpha=0.5) +
+  ylab("Alcance Horizontal") +
+  ggtitle("Diagrama de caja de Alcance Horizontal") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Velocidad (m/s) vs Ángulo
+ggplot(Reto_estadistica, aes(x=`velocidad m/s`, y=Angulo)) +
+  geom_point(color="darkblue") +
+  ggtitle("Dispersión de Velocidad (m/s) vs Ángulo") +
+  xlab("Velocidad (m/s)") +
+  ylab("Ángulo") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Velocidad en X vs Tiempo
+ggplot(Reto_estadistica, aes(x=`Velocidad X`, y=Tiempo)) +
+  geom_point(color="darkgreen") +
+  ggtitle("Dispersión de Velocidad en X vs Tiempo") +
+  xlab("Velocidad en X") +
+  ylab("Tiempo") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Velocidad en Y vs Altura Máxima
+ggplot(Reto_estadistica, aes(x=`Velocidad Y`, y=`Altura Maxima`)) +
+  geom_point(color="darkorange") +
+  ggtitle("Dispersión de Velocidad en Y vs Altura Máxima") +
+  xlab("Velocidad en Y") +
+  ylab("Altura Máxima") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Tiempo vs Alcance Horizontal
+ggplot(Reto_estadistica, aes(x=Tiempo, y=`Alcanze horizontal`)) +
+  geom_point(color="darkred") +
+  ggtitle("Dispersión de Tiempo vs Alcance Horizontal") +
+  xlab("Tiempo") +
+  ylab("Alcance Horizontal") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Altura Máxima vs Ángulo
+ggplot(Reto_estadistica, aes(x=`Altura Maxima`, y=Angulo)) +
+  geom_point(color="darkviolet") +
+  ggtitle("Dispersión de Altura Máxima vs Ángulo") +
+  xlab("Altura Máxima") +
+  ylab("Ángulo") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Altura Máxima vs Alcance Horizontal
+ggplot(Reto_estadistica, aes(x=`Altura Maxima`, y=`Alcanze horizontal`)) +
+  geom_point(color="darkgreen") +
+  ggtitle("Dispersión de Altura Máxima vs Alcance Horizontal") +
+  xlab("Altura Máxima") +
+  ylab("Alcance Horizontal") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
+
+# Ángulo vs Tiempo
+ggplot(Reto_estadistica, aes(x=Angulo, y=Tiempo)) +
+  geom_point(color="darkblue") +
+  ggtitle("Dispersión de Ángulo vs Tiempo") +
+  xlab("Ángulo") +
+  ylab("Tiempo") +
+  theme_ipsum() +
+  theme(plot.title = element_text(size=15))
